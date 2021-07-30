@@ -8,8 +8,8 @@ defmodule Pratipad.Example.Device.Client do
   end
 
   @impl Backward
-  def backward_message(message) do
-    Logger.info("backward_message: #{inspect(message)}")
+  def forward_message(message) do
+    Logger.info("forward_message: #{inspect(message)}")
 
     if is_atom(message.data) && message.data == :open_the_door do
       GenServer.cast(Pratipad.Example.Device.Worker, :notify)
